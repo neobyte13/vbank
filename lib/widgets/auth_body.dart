@@ -26,9 +26,10 @@ class _AuthBodyState extends State<AuthBody> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.10),
                       child: Text(
-                        'Sign in',
+                        'Sign In',
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -40,7 +41,8 @@ class _AuthBodyState extends State<AuthBody> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.10),
                       child: Text(
                         'Phone Number',
                         style: TextStyle(
@@ -58,17 +60,10 @@ class _AuthBodyState extends State<AuthBody> {
                       child: TextFormField(
                         keyboardType: TextInputType.phone,
                         decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFD3D3D3),
-                              width: 1.0,
-                            ),
-                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
-                              width: 1.0,
-                            ),
+                            borderSide:
+                                BorderSide(width: 1.0, color: Colors.yellow),
                           ),
                         ),
                       ),
@@ -80,7 +75,8 @@ class _AuthBodyState extends State<AuthBody> {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.10),
                       child: Text(
                         'Password',
                         style: TextStyle(
@@ -99,27 +95,12 @@ class _AuthBodyState extends State<AuthBody> {
                         keyboardType: TextInputType.text,
                         obscureText: true,
                         decoration: InputDecoration(
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFD3D3D3),
-                              width: 1.0,
-                            ),
-                          ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
-                            borderSide: BorderSide(
-                              width: 1.0,
-                            ),
+                            borderSide:
+                                BorderSide(width: 1.0, color: Colors.yellow),
                           ),
                         ),
-                        // decoration:
-                        //     const InputDecoration(labelText: 'What is your name?'),
-                        // validator: (String value) {
-                        //   if (value.isEmpty) {
-                        //     return 'Please enter your full name';
-                        //   }
-                        //   return null;
-                        // },
                       ),
                     ),
                   ),
@@ -127,7 +108,10 @@ class _AuthBodyState extends State<AuthBody> {
                   Align(
                     alignment: Alignment.bottomRight,
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.only(
+                        right: MediaQuery.of(context).size.width * 0.10,
+                        bottom: 8,
+                      ),
                       child: Text(
                         'Forgot Password?',
                         style: TextStyle(
@@ -138,6 +122,27 @@ class _AuthBodyState extends State<AuthBody> {
                       ),
                     ),
                   ),
+                  InkWell(
+                    onTap: () {
+                      loginSlide();
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width / 1.5,
+                      height: 40.0,
+                      decoration: BoxDecoration(
+                        color: Colors.yellow,
+                        border: Border.all(color: Colors.yellow, width: 2.0),
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Sign in',
+                          style: TextStyle(fontSize: 18.0, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                 ],
               ),
             ),
@@ -252,7 +257,7 @@ class _AuthBodyState extends State<AuthBody> {
             width: MediaQuery.of(context).size.width / 1.5,
             height: 40.0,
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: Colors.transparent,
               border: Border.all(color: Colors.white, width: 2.0),
               borderRadius: BorderRadius.circular(30.0),
             ),
