@@ -11,7 +11,7 @@ class AuthScreen extends StatelessWidget {
         body: Stack(
           children: <Widget>[
             Image(
-              image: AssetImage("images/auth_bg.jpg"),
+              image: AssetImage("assets/images/auth_bg.jpg"),
               width: width,
               height: height,
               fit: BoxFit.cover,

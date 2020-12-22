@@ -8,7 +8,7 @@ class Logo extends StatelessWidget {
       width: 150,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("images/VBank.png"),
+          image: AssetImage("assets/images/VBank.png"),
           fit: BoxFit.cover,
         ),
       ),

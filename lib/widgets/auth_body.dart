@@ -167,7 +167,7 @@ class _AuthBodyState extends State<AuthBody> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
-                          image: AssetImage('images/ngn_flag.jpeg'),
+                          image: AssetImage('assets/images/ngn_flag.jpeg'),
                           fit: BoxFit.fill),
                     ),
                   ),
@@ -203,7 +203,7 @@ class _AuthBodyState extends State<AuthBody> {
           width: MediaQuery.of(context).size.width * 0.50,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("images/VBank_stripped.png"),
+              image: AssetImage("assets/images/VBank_stripped.png"),
               fit: BoxFit.fill,
             ),
           ),
