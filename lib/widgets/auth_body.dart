@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vbank/screens/home.dart';
 
@@ -7,6 +8,9 @@ class AuthBody extends StatefulWidget {
 }
 
 class _AuthBodyState extends State<AuthBody> {
+  //Controllers for e-mail and password textfields.
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   void loginSlide() {
     showModalBottomSheet(
         context: context,
@@ -45,7 +49,7 @@ class _AuthBodyState extends State<AuthBody> {
                       padding: EdgeInsets.only(
                           left: MediaQuery.of(context).size.width * 0.10),
                       child: Text(
-                        'Phone Number',
+                        'Email',
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
@@ -59,7 +63,8 @@ class _AuthBodyState extends State<AuthBody> {
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width * 0.80,
                       child: TextFormField(
-                        keyboardType: TextInputType.phone,
+                        controller: emailController,
+                        keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30.0),
@@ -93,6 +98,7 @@ class _AuthBodyState extends State<AuthBody> {
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width * 0.80,
                       child: TextFormField(
+                        controller: passwordController,
                         keyboardType: TextInputType.text,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -124,11 +130,60 @@ class _AuthBodyState extends State<AuthBody> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                    onTap: () async {
+                      if (emailController.text.isNotEmpty &&
+                          passwordController.text.isNotEmpty) {
+                        try {
+                          await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim());
+                          print("User logged in");
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        } catch (e) {
+                          print(e);
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: new Text(e.toString()),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    child: new Text("OK"),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                      emailController.clear();
+                                      passwordController.clear();
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      } else {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              title: Text('Please enter the required details'),
+                              actions: <Widget>[
+                                FlatButton(
+                                  child: Text("OK"),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                    emailController.clear();
+                                    passwordController.clear();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 1.5,
@@ -152,6 +207,20 @@ class _AuthBodyState extends State<AuthBody> {
             ),
           );
         });
+  }
+
+  @override
+  void initState() {
+    emailController.text = '';
+    passwordController.text = '';
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
