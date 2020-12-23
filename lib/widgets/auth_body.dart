@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vbank/screens/home.dart';
 
 class AuthBody extends StatefulWidget {
   @override
@@ -124,7 +125,10 @@ class _AuthBodyState extends State<AuthBody> {
                   ),
                   InkWell(
                     onTap: () {
-                      loginSlide();
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
                     },
                     child: Container(
                       width: MediaQuery.of(context).size.width / 1.5,
