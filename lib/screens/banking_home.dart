@@ -11,7 +11,7 @@ class _BankingHomeState extends State<BankingHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[200],
       body: ListView(
         children: <Widget>[
           Row(
@@ -42,7 +42,7 @@ class _BankingHomeState extends State<BankingHome> {
                 borderRadius: BorderRadius.circular(10),
               ),
               elevation: 10,
-              color: Colors.white70,
+              color: Colors.white60,
               child: Container(
                 height: MediaQuery.of(context).size.height * 0.25,
                 width: MediaQuery.of(context).size.width * 0.75,
@@ -82,6 +82,111 @@ class _BankingHomeState extends State<BankingHome> {
                   ],
                 ),
               ),
+            ),
+          ),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+          Container(
+            color: Colors.grey[50],
+            child: Column(
+              children: <Widget>[
+                Align(
+                  alignment: FractionalOffset.topLeft,
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text('Banking Quick Links'),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Send Money'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Lifestyle'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Transaction History'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Quick Loans'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Pay Bills'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('TV Subscription'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Data and Mobile Topup'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Foreign Curency Transfer'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Click Credit'),
+                    ),
+                  ),
+                ),
+                Card(
+                  child: Align(
+                    alignment: FractionalOffset.bottomLeft,
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('Electricity'),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
