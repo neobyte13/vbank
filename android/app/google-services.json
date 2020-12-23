@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "600813873493",
+    "project_id": "vbank-6aa8f",
+    "storage_bucket": "vbank-6aa8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600813873493:android:c105158abd7af0b52e27dc",
+        "android_client_info": {
+          "package_name": "com.daniel.vbank"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600813873493-1cpinsjflvu82fpgtiu2e0e1to9fpvec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUoRIEiguwDUAL8tMRu4gk-LHml3J4RVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600813873493-1cpinsjflvu82fpgtiu2e0e1to9fpvec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
