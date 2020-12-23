@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vbank/screens/banking_home.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -50,33 +51,43 @@ class HomeScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  elevation: 10,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: MediaQuery.of(context).size.height * 0.40,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("assets/images/banking_yellow.webp"),
-                        fit: BoxFit.cover,
-                        alignment: Alignment.topCenter,
-                      ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BankingHome(),
+                        ));
+                  },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: Align(
-                        alignment: Alignment.bottomLeft,
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            "Banking",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: Colors.white),
-                          ),
-                        )),
+                    elevation: 10,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.45,
+                      height: MediaQuery.of(context).size.height * 0.40,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image:
+                              AssetImage("assets/images/banking_yellow.webp"),
+                          fit: BoxFit.cover,
+                          alignment: Alignment.topCenter,
+                        ),
+                      ),
+                      child: Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              "Banking",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.white),
+                            ),
+                          )),
+                    ),
                   ),
                 ),
                 Card(
