@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vbank/widgets/side_drawer.dart';
 
 class BankingHome extends StatefulWidget {
   BankingHome({Key key}) : super(key: key);
@@ -8,9 +9,13 @@ class BankingHome extends StatefulWidget {
 }
 
 class _BankingHomeState extends State<BankingHome> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawerEnableOpenDragGesture: false,
+      drawer: SideDrawer(),
       backgroundColor: Colors.grey[200],
       body: ListView(
         children: <Widget>[
@@ -21,7 +26,9 @@ class _BankingHomeState extends State<BankingHome> {
                 icon: Icon(
                   Icons.menu,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  _scaffoldKey.currentState.openDrawer();
+                },
               ),
               Container(
                 child: Image(
